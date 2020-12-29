@@ -4,14 +4,29 @@
 // window.onload = sayHello;
 
 function getCurrentTabUrl(callback){
-    var queryinfo = {
+    var queryInfo = {
         active: true,
         currentWindow: true
     };
 
-    chrome.tabs.query(queryinfo, function(tabs){
+    chrome.tabs.query(queryInfo, function(tabs){
         var tab = tabs[0];
         var url = tab.url;
         callback(url);
     });
 }
+
+function renderURL(statusText){
+    document.getElementById('urls').textContent = statusText;
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+    //Wehn Click, get Current Page link
+    var link = document.getElementById('getUrl');
+
+    link.addEventListener('click', function(){
+        getCurrentTabUrl(function(url){
+            renderURL(url);
+        });
+    });
+});
