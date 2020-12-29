@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+   
+  "name": "Cookie parking",
+  "description": "Print Hello, World! message",
+  "version": "1.0",
+   
+  "browser_action": {
+      "default_icon": "cookie.png",
+      "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "<all_urls>",
+    "tabs"
+  ]
+}
